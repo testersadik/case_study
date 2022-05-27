@@ -27,7 +27,6 @@ public class DashboardStepDefs {
     }
     @When("Add the {string} to the basket")
     public void add_the_to_the_basket(String productName) throws InterruptedException {
-        BrowserUtils.hover(Driver.get().findElement(By.xpath("/html/body/section[2]/div/div/div[2]/div/div[2]/div/div[1]")));
         BrowserUtils.clickWithJS(page.dashboardPage().add_to_cart);
         page.dashboardPage().continue_shopping.click();
         BrowserUtils.waitFor(1);
@@ -37,7 +36,6 @@ public class DashboardStepDefs {
         Driver.get().get("https://automationexercise.com/products");
         page.dashboardPage().searchBox.sendKeys(productName);
         page.dashboardPage().search_product.click();
-        BrowserUtils.hover(Driver.get().findElement(By.xpath("/html/body/section[2]/div[1]/div/div[2]/div/div[2]/div/div[1]/div[1]")));
         BrowserUtils.clickWithJS(Driver.get().findElement(By.xpath("/html/body/section[2]/div[1]/div/div[2]/div/div[2]/div/div[1]/div[2]/div/a")));
         BrowserUtils.waitFor(1);
     }

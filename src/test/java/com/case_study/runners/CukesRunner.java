@@ -8,7 +8,7 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features",
         glue = "com/case_study/step_definitions",
         dryRun = false,
-        tags = "@TC3"
+        tags = "login"
 
 )
 public class CukesRunner {
