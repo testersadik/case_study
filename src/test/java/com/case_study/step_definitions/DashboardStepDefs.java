@@ -19,18 +19,21 @@ public class DashboardStepDefs {
         page.dashboardPage().search_product.click();
         BrowserUtils.waitFor(1);
     }
+
     @Then("Verify that the prices is RS {int}")
     public void verify_that_the_prices_is_RS(@NotNull Integer price) throws InterruptedException {
         String page_source = Driver.get().getPageSource();
         Assert.assertTrue(page_source.contains(price.toString()));
         BrowserUtils.waitFor(1);
     }
+
     @When("Add the {string} to the basket")
     public void add_the_to_the_basket(String productName) throws InterruptedException {
         BrowserUtils.clickWithJS(page.dashboardPage().add_to_cart);
         page.dashboardPage().continue_shopping.click();
         BrowserUtils.waitFor(1);
     }
+
     @When("Search and Add the {string} to the basket")
     public void search_and_Add_the_to_the_basket(String productName) throws InterruptedException {
         Driver.get().get("https://automationexercise.com/products");
@@ -39,6 +42,7 @@ public class DashboardStepDefs {
         BrowserUtils.clickWithJS(Driver.get().findElement(By.xpath("/html/body/section[2]/div[1]/div/div[2]/div/div[2]/div/div[1]/div[2]/div/a")));
         BrowserUtils.waitFor(1);
     }
+
     @When("Process to basket and to checkout")
     public void process_to_basket_and_to_checkout() throws InterruptedException {
         Driver.get().get("https://automationexercise.com/view_cart");
@@ -67,6 +71,7 @@ public class DashboardStepDefs {
             System.out.println(" the Fancy Green Top is not in checkout.");
         }
     }
+
     @When("Select Place Order and enter in the following banking information: Name on card: {string} , Card Number: {int}, Cvc: {int}, Expiration: {int}, Year: {int}")
     public void select_Place_Order_and_enter_in_the_following_banking_information_Name_on_card_Card_Number_Cvc_Expiration_Year(String name, Integer cardNumber, Integer cvc, Integer month, Integer year) {
         page.dashboardPage().place_order.click();
@@ -76,7 +81,6 @@ public class DashboardStepDefs {
         page.dashboardPage().expiry_month.sendKeys(month.toString());
         page.dashboardPage().expiry_year.sendKeys(year.toString());
     }
-
 
     @When("Pay and confirm order")
     public void pay_and_confirm_order() {

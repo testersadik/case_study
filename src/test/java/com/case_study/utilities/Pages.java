@@ -14,14 +14,10 @@ public class Pages {
         return loginPage;
     }
 
-
     public DashboardPage dashboardPage() {
         if (dashboardPage == null) {
             dashboardPage = new DashboardPage();
         }
         return dashboardPage;
     }
-
-
-
 }
